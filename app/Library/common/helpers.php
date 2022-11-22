@@ -1,7 +1,9 @@
 <?php
 
+namespace App\Library\Common;
 
 use Phalcon\Di\Di;
+use Phalcon\Di\FactoryDefault;
 
 if (!function_exists('env')) {
     /**
