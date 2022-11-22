@@ -1,0 +1,23 @@
+{
+    "name": "phalcon/v5",
+    "description": "This is Phalcon CMS project developed by tramcode.net",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Tramcode",
+            "email": "tuan.ngminh29@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phalcon/migrations": "^3.0",
+        "phalcon/ide-stubs": "^5.1"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
