@@ -33,6 +33,12 @@ class RegisterForm extends Form
             'string',
             'alnum',
         ]);
+        $firstName->addValidator(
+            new StringLength([
+                'max'            => 50,
+                'messageMaximum' => 'The first name is too long, max 50 characters <br>',
+            ])
+        );
         $this->add($firstName);
 
         // Last name
@@ -46,6 +52,12 @@ class RegisterForm extends Form
             'string',
             'alnum',
         ]);
+        $lastName->addValidator(
+            new StringLength([
+                'max'            => 50,
+                'messageMaximum' => 'The last name is too long, max 50 characters <br>',
+            ])
+        );
         $this->add($lastName);
 
         // Email

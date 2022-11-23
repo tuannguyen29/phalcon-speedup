@@ -10,7 +10,7 @@ $router->add(
         'controller' => 'login',
         'action'     => 'index',
     ]
-);
+)->setName('login');
 
 $router->add(
     '/auth/register',
@@ -19,7 +19,7 @@ $router->add(
         'controller' => 'register',
         'action'     => 'index',
     ]
-);
+)->setName('register');
 
 $router->add(
     '/auth/logout',

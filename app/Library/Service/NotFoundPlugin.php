@@ -53,7 +53,7 @@ class NotFoundPlugin extends Injectable
             }
         }
 
-        if ($dispatcher->getControllerName() !== 'errors') {
+        if ($dispatcher->getControllerName() !== 'errors' && env('APP_ENV') === 'production') {
             $dispatcher->forward([
                 'namespace'  => 'App\Controllers',
                 'controller' => 'error',
@@ -61,6 +61,8 @@ class NotFoundPlugin extends Injectable
             ]);
 
             return false;
+        } else {
+            print_message_exception($exception);
         }
 
         return !$event->isStopped();

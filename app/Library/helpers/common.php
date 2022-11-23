@@ -1,9 +1,6 @@
 <?php
 
-namespace App\Library\Common;
-
 use Phalcon\Di\Di;
-use Phalcon\Di\FactoryDefault;
 
 if (!function_exists('env')) {
     /**
@@ -22,22 +19,25 @@ if (!function_exists('env')) {
     }
 }
 
-function dump($data)
+/**
+ * Overide function dump()
+ *
+ * @link https://symfony.com/doc/current/components/var_dumper.html
+ * @param mixed $object
+ * @return mixed
+ */
+function dump2($object)
 {
     $trace  = debug_backtrace();
     $caller = array_shift($trace);
-    echo '<pre style="color: rgba(155, 220, 100, 1); background-color: #202020;padding: 10px;white-space: pre-wrap;">';
+    echo '<pre>';
     echo 'called by [' . $caller['file'] . '] line: ' . $caller['line'] . "\n";
-    var_dump($data);
+    dump($object);
 }
 
-function dd($data)
+function trace($object)
 {
-    $trace  = debug_backtrace();
-    $caller = array_shift($trace);
-    echo '<pre style="color: rgba(155, 220, 100, 1); background-color: #202020;padding: 10px;white-space: pre-wrap;">';
-    echo 'called by [' . $caller['file'] . '] line: ' . $caller['line'] . "\n";
-    var_dump($data);
+    dump2($object);
     die();
 }
 
@@ -67,9 +67,16 @@ function old($key, $default = null)
     return empty($_POST[$key]) ? (empty($default) ? '' : $default) : $_POST[$key];
 }
 
-function auth($key)
+function auth()
 {
     $session = Di::getDefault()->getShared('session');
 
-    return empty($session->get($key)) ? null : $session->get($key);
+    return empty($session->get('auth')) ? null : $session->get('auth');
+}
+
+function route($name)
+{
+    $url = Di::getDefault()->getShared('url');
+
+    return $url->get(['for' => $name]);
 }

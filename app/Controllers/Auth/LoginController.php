@@ -38,10 +38,8 @@ class LoginController extends Controller
                 $password = $this->request->getPost('password');
 
                 $this->checkLogin($email, $password);
-                $this->setLogin([
-                    'hasLogin' => 1,
-                    'email' => $this->request->getPost('email')
-                ]);
+                $this->setLogin($email);
+
                 return;
             } else {
                 // if validation fails write messages to flash service

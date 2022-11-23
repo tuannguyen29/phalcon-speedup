@@ -2,27 +2,33 @@
 
 namespace App\Traits;
 
+use User;
+
 trait AuthenticatesUsers
 {
     protected $redirecTo = '/';
 
     public function hasLogin()
     {
-        if (auth('hasLogin')) {
+        if (auth()) {
             $this->response->redirect($this->redirecTo);
         }
     }
 
-    public function setLogin($params)
+    public function setLogin($email)
     {
-        foreach ($params as $key => $value) {
-            $this->session->set($key, $value);
+        $user = User::findFirstByEmail($email);
+
+        if (!$user) {
+            return false;
         }
+
+        $this->session->set('auth', $user);
     }
 
     public function logout()
     {
-        if (empty(auth('hasLogin'))) {
+        if (empty(auth())) {
             $this->response->redirect($this->redirecTo);
         }
 

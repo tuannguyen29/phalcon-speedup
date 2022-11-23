@@ -10,7 +10,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->url->get('img/favicon.ico')?>"/>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-        <link rel="stylesheet" href="{{ url('/css/style.css') }}">
+        <link rel="stylesheet" href="{{ static_url('/css/style.css') }}">
     </head>
     <body>
         <div class="container">

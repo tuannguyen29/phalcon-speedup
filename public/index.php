@@ -58,7 +58,7 @@ try {
     /**
      * Auto-loader helpers function.
      */
-    $files = glob(LIBRARY_PATH . '/common/*.php');
+    $files = glob(LIBRARY_PATH . '/helpers/*.php');
     foreach ($files as $file) {
         require $file;
     }
