@@ -6,9 +6,9 @@ use Phalcon\Db\Index;
 use Phalcon\Migrations\Mvc\Model\Migration;
 
 /**
- * Class UsersMigration_100
+ * Class UsersMigration_103
  */
-class UsersMigration_100 extends Migration
+class UsersMigration_103 extends Migration
 {
     /**
      * Define the table structure
@@ -72,7 +72,7 @@ class UsersMigration_100 extends Migration
                         'type' => Column::TYPE_VARCHAR,
                         'notNull' => false,
                         'size' => 191,
-                        'after' => 'uuid'
+                        'after' => 'username'
                     ]
                 ),
                 new Column(
@@ -108,7 +108,7 @@ class UsersMigration_100 extends Migration
                     [
                         'type' => Column::TYPE_TIMESTAMP,
                         'notNull' => false,
-                        'after' => 'deleted_ip_address'
+                        'after' => 'token'
                     ]
                 ),
                 new Column(
@@ -149,7 +149,6 @@ class UsersMigration_100 extends Migration
                 new Index('PRIMARY', ['id'], 'PRIMARY'),
                 new Index('users_email_unique', ['email'], 'UNIQUE'),
                 new Index('users_username_unique', ['username'], 'UNIQUE'),
-                new Index('users_uuid_unique', ['uuid'], 'UNIQUE'),
                 new Index('users_username_fulltext', ['username'], 'FULLTEXT'),
             ],
             'options' => [
@@ -168,6 +167,22 @@ class UsersMigration_100 extends Migration
      */
     public function up(): void
     {
+        $this->batchInsert('users', [
+            'id',
+            'email',
+            'email_verified_at',
+            'password',
+            'username',
+            'first_name',
+            'last_name',
+            'activated',
+            'token',
+            'last_login',
+            'deleted_at',
+            'remember_token',
+            'created_at',
+            'updated_at',
+        ]);
     }
 
     /**
@@ -177,5 +192,6 @@ class UsersMigration_100 extends Migration
      */
     public function down(): void
     {
+        $this->batchDelete('users');
     }
 }

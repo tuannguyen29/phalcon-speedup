@@ -12,7 +12,6 @@ return new \Phalcon\Config\Config([
         'appDir'         => APP_PATH . '/',
         'controllersDir' => APP_PATH . '/controllers/',
         'modelsDir'      => APP_PATH . '/models/',
-        'migrationsDir'  => APP_PATH . '/migrations/',
         'viewsDir'       => APP_PATH . '/views/',
         'pluginsDir'     => APP_PATH . '/plugins/',
         'libraryDir'     => APP_PATH . '/library/',
@@ -20,9 +19,13 @@ return new \Phalcon\Config\Config([
         'baseUri'        => '/',
 
         /**
-         *
+         * Migration settings.
          */
-        'logInDb'           => true,
-        'migrationsTsBased' => true,   // true - Use TIMESTAMP as version name (ex: 1668771552963256), false - use versions (ex: 1.0.0)
+        'logInDb'              => true,
+        'migrationsTsBased'    => true, # true - Use TIMESTAMP as version name (ex: 1668771552963256), false - use versions (ex: 1.0.0)
+        'migrationsDir'        => APP_PATH . '/migrations/',
+        'exportDataFromTables' => [
+            'users',
+        ],
     ]
 ]);

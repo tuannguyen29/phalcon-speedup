@@ -1,5 +1,6 @@
 <?php
 
+use Phalcon\Tag;
 use Phalcon\Di\Di;
 
 if (!function_exists('env')) {
@@ -12,9 +13,6 @@ if (!function_exists('env')) {
      */
     function env($key, $default = null)
     {
-        $dotenv = Dotenv\Dotenv::createUnsafeImmutable(BASE_PATH);
-        $dotenv->load();
-
         return empty($_ENV[$key]) ? (empty($default) ? null : $default) : $_ENV[$key];
     }
 }
@@ -31,7 +29,7 @@ function dump2($object)
     $trace  = debug_backtrace();
     $caller = array_shift($trace);
     echo '<pre>';
-    echo 'called by [' . $caller['file'] . '] line: ' . $caller['line'] . "\n";
+    echo '<span style="color: #FF8400; font-weight:bold">called by [' . $caller['file'] . '] line: ' . $caller['line'] . "</span>\n";
     dump($object);
 }
 
@@ -79,4 +77,21 @@ function route($name)
     $url = Di::getDefault()->getShared('url');
 
     return $url->get(['for' => $name]);
+}
+
+function prepend_title($title)
+{
+    Tag::prependTitle($title);
+}
+
+/**
+ * Function set title
+ *
+ * @param string $title
+ * @return string
+ * @link https://docs.phalcon.io/4.0/en/tag
+ */
+function set_title($title)
+{
+    Tag::setTitle($title);
 }

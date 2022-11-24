@@ -31,6 +31,12 @@ include BASE_PATH . '/vendor/autoload.php';
 
 try {
     /**
+     * Load ENV variables
+     */
+    $dotenv = Dotenv\Dotenv::createUnsafeImmutable(BASE_PATH);
+    $dotenv->load();
+
+    /**
      * The FactoryDefault Dependency Injector automatically registers
      * the services that provide a full stack framework.
      */
