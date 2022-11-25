@@ -2,12 +2,12 @@
 
 namespace App\Controllers\Auth;
 
+use App\Controllers\ControllerBase;
 use User;
-use Phalcon\Mvc\Controller;
 use App\Forms\Auth\LoginForm;
 use App\Traits\AuthenticatesUsers;
 
-class LoginController extends Controller
+class LoginController extends ControllerBase
 {
     use AuthenticatesUsers;
 
@@ -15,6 +15,7 @@ class LoginController extends Controller
     {
         $this->hasLogin();
         $this->showLoginForm();
+        set_title('Login');
     }
 
     public function showLoginForm()

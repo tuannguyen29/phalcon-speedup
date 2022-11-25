@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use Phalcon\Mvc\Controller;
+use App\Controllers\ControllerBase;
 
-class ErrorController extends Controller
+class ErrorController extends ControllerBase
 {
     public function show404Action()
     {
