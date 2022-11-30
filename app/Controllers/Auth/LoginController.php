@@ -20,7 +20,7 @@ class LoginController extends ControllerBase
 
     public function showLoginForm()
     {
-        $form             = new LoginForm();
+        $form = new LoginForm();
         $this->view->form = $form;
 
         if ($this->request->isPost()) {

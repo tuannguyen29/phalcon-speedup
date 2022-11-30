@@ -34,7 +34,7 @@ switch to the relevant branch.
 
 1. Show list `vendor/bin/phalcon-migrations list --config=migrations.php`
 2. Generate `vendor/bin/phalcon-migrations generate --config=migrations.php`
-3. Run create db `vendor/bin/phalcon-migrations migration run --config=migrations.php`
+3. Run create db `vendor/bin/phalcon-migrations run --config=migrations.php`
 
 
 ## License
