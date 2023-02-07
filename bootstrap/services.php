@@ -16,10 +16,6 @@ use Phalcon\Session\Manager as SessionManager;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Session\Adapter\Stream as SessionAdapter;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
-use Phalcon\Dispatcher\Exception as DispatcherException;
-use Phalcon\Mvc\Dispatcher as MvcDispatcher;
-use Phalcon\Events\Event;
-use Phalcon\Events\Manager;
 
 /**
  * Shared configuration service

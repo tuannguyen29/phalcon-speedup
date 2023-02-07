@@ -12,3 +12,5 @@ class ErrorController extends ControllerBase
 
     public function show500Action()
     {
+    }
+}

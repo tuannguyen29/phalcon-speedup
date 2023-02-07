@@ -8,4 +8,11 @@ class IndexController extends ControllerBase
 {
     public function initialize()
     {
-        par
+        parent::initialize();
+        set_title('Homepage');
+    }
+
+    public function indexAction()
+    {
+    }
+}

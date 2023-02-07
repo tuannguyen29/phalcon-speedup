@@ -104,4 +104,6 @@ class RegisterController extends ControllerBase
             return true;
         }
 
- 
+        return false;
+    }
+}

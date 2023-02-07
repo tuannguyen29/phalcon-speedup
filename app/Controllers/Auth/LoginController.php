@@ -90,4 +90,7 @@ class LoginController extends ControllerBase
     }
 
     public function logoutAction()
-  
+    {
+        $this->logout();
+    }
+}
