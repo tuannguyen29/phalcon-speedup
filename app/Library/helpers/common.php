@@ -95,25 +95,3 @@ function set_title($title)
 {
     Tag::setTitle($title);
 }
-
-if (! function_exists('cache_asset')) {
-    /**
-     * Generate cache version for asset in blade.
-     *
-     * @param bool $cacheWithVersion
-     *
-     * @return string
-     */
-    function cache_asset($cacheWithVersion = true)
-    {
-        if (getenv('APP_ENV') != 'production') {
-            return time();
-        }
-
-        if (!$cacheWithVersion) {
-            return date('dmY');
-        }
-
-        return 1.1;
-    }
-}

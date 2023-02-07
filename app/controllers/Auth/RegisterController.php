@@ -15,7 +15,6 @@ class RegisterController extends ControllerBase
     {
         $this->hasLogin();
         $this->showRegisterForm();
-        set_title('Register');
     }
 
     public function showRegisterForm()
@@ -104,4 +103,6 @@ class RegisterController extends ControllerBase
             return true;
         }
 
- 
+        return false;
+    }
+}
