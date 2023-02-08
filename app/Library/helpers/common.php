@@ -95,3 +95,8 @@ function set_title($title)
 {
     Tag::setTitle($title);
 }
+
+function cache_asset($param = true)
+{
+    return true;
+}
