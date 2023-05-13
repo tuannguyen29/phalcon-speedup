@@ -3,6 +3,7 @@
 namespace App\Controllers\Auth;
 
 use User;
+use Carbon\Carbon;
 use App\Forms\Auth\RegisterForm;
 use App\Traits\AuthenticatesUsers;
 use App\Controllers\ControllerBase;
@@ -72,6 +73,7 @@ class RegisterController extends ControllerBase
         $user->first_name = $params['first_name'];
         $user->last_name  = $params['last_name'];
         $user->email      = $params['email'];
+        $user->last_login = Carbon::now();
         $user->password   = $this->security->hash($params['password']);
         $user->save();
     }
