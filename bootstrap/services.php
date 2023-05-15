@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Phalcon\Di\Di;
 use Phalcon\Mvc\View;
+use Phalcon\Session\Bag;
 use Phalcon\Html\Escaper;
 use Phalcon\Logger\Logger;
 use Phalcon\Flash\Direct as Flash;
@@ -174,6 +175,13 @@ $di->setShared('session', function () {
     }
 
     return $session;
+});
+
+
+$di->setShared('sessionBag', function () {
+    $session = Di::getDefault()->getShared('session');
+
+    return new Bag($session, 'bag');
 });
 
 $di->set(

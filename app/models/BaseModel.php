@@ -5,10 +5,11 @@ use Phalcon\Mvc\Model;
 
 class BaseModel extends Model
 {
-    protected $created_at;
-
     public function initialize()
     {
-        $this->created_at = Carbon::now();
+    }
+
+    public function beforeValidationOnCreate()
+    {
     }
 }

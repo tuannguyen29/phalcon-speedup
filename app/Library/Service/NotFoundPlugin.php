@@ -44,7 +44,7 @@ class NotFoundPlugin extends Injectable
                 case DispatcherException::EXCEPTION_HANDLER_NOT_FOUND:
                 case DispatcherException::EXCEPTION_ACTION_NOT_FOUND:
                     $dispatcher->forward([
-                        'controller' => 'error',
+                        'controller' => 'errors',
                         'action'     => 'show404',
                         'namespace'  => 'App\Controllers',
                     ]);
@@ -56,7 +56,7 @@ class NotFoundPlugin extends Injectable
         if ($dispatcher->getControllerName() !== 'errors' && env('APP_ENV') === 'production') {
             $dispatcher->forward([
                 'namespace'  => 'App\Controllers',
-                'controller' => 'error',
+                'controller' => 'errors',
                 'action'     => 'show500',
             ]);
 

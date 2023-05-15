@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Invo\Plugins;
+namespace App\Library\Service;
 
 use Phalcon\Acl\Adapter\Memory as AclList;
 use Phalcon\Acl\Component;
@@ -42,7 +42,8 @@ class SecurityPlugin extends Injectable
         if (!$auth) {
             $role = 'Guests';
         } else {
-            $role = 'Users';
+            // $role = 'Users'; // TODO: edit it
+            $role = 'Super Admin';
         }
 
         $controller = $dispatcher->getControllerName();
@@ -52,6 +53,7 @@ class SecurityPlugin extends Injectable
 
         if (!$acl->isComponent($controller)) {
             $dispatcher->forward([
+                'namespace'  => 'App\Controllers',
                 'controller' => 'errors',
                 'action'     => 'show404',
             ]);
@@ -62,11 +64,10 @@ class SecurityPlugin extends Injectable
         $allowed = $acl->isAllowed($role, $controller, $action);
         if (!$allowed) {
             $dispatcher->forward([
+                'namespace'  => 'App\Controllers',
                 'controller' => 'errors',
                 'action'     => 'show401',
             ]);
-
-            $this->session->destroy();
 
             return false;
         }
@@ -90,6 +91,10 @@ class SecurityPlugin extends Injectable
 
         // Register roles
         $roles = [
+            'super_admin'  => new Role(
+                'Super Admin',
+                'Only super admin.'
+            ),
             'users'  => new Role(
                 'Users',
                 'Member privileges, granted after sign in.'
@@ -105,13 +110,14 @@ class SecurityPlugin extends Injectable
         }
 
         //Private area resources
-        $privateResources = [
+        $adminResources = [
+            'dashboard'    => ['index'],
             'companies'    => ['index', 'search', 'new', 'edit', 'save', 'create', 'delete'],
             'products'     => ['index', 'search', 'new', 'edit', 'save', 'create', 'delete'],
             'producttypes' => ['index', 'search', 'new', 'edit', 'save', 'create', 'delete'],
             'invoices'     => ['index', 'profile'],
         ];
-        foreach ($privateResources as $resource => $actions) {
+        foreach ($adminResources as $resource => $actions) {
             $acl->addComponent(new Component($resource), $actions);
         }
 
@@ -120,6 +126,7 @@ class SecurityPlugin extends Injectable
             'index'    => ['index'],
             'about'    => ['index'],
             'register' => ['index'],
+            'login'    => ['index'],
             'errors'   => ['show401', 'show404', 'show500'],
             'session'  => ['index', 'register', 'start', 'end'],
             'contact'  => ['index', 'send'],
@@ -138,9 +145,9 @@ class SecurityPlugin extends Injectable
         }
 
         //Grant access to private area to role Users
-        foreach ($privateResources as $resource => $actions) {
+        foreach ($adminResources as $resource => $actions) {
             foreach ($actions as $action) {
-                $acl->allow('Users', $resource, $action);
+                $acl->allow('Super Admin', $resource, $action);
             }
         }
 

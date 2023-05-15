@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Controllers\ControllerBase;
+use App\Controllers\BaseController;
 
-class IndexController extends ControllerBase
+class IndexController extends BaseController
 {
     public function initialize()
     {

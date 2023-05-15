@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Controllers\Admin;
+namespace App\Controllers;
 
-use Phalcon\Mvc\Controller;
+use Phalcon\Mvc\Controller as PhalconController;
 
-class MasterController extends Controller
+class BaseController extends PhalconController
 {
     protected function initialize()
     {
@@ -14,6 +14,6 @@ class MasterController extends Controller
         prepend_title(env('APP_NAME') . ' | ');
 
         // Set layout default.
-        $this->view->setTemplateAfter('admin');
+        $this->view->setTemplateAfter('base');
     }
 }

@@ -11,6 +11,14 @@ $router->add(
         'action'     => 'index',
     ]
 );
+$router->add(
+    'dashboard',
+    [
+        'namespace'  => 'App\Controllers\Admin',
+        'controller' => 'dashboard',
+        'action'     => 'index',
+    ]
+);
 
 $router->removeExtraSlashes(true);
 $router->handle($_SERVER['REQUEST_URI']);

@@ -6,9 +6,9 @@ use User;
 use Carbon\Carbon;
 use App\Forms\Auth\RegisterForm;
 use App\Traits\AuthenticatesUsers;
-use App\Controllers\ControllerBase;
+use App\Controllers\BaseController;
 
-class RegisterController extends ControllerBase
+class RegisterController extends BaseController
 {
     use AuthenticatesUsers;
 

@@ -2,12 +2,12 @@
 
 namespace App\Controllers\Auth;
 
-use App\Controllers\ControllerBase;
 use User;
 use App\Forms\Auth\LoginForm;
 use App\Traits\AuthenticatesUsers;
+use App\Controllers\BaseController;
 
-class LoginController extends ControllerBase
+class LoginController extends BaseController
 {
     use AuthenticatesUsers;
 

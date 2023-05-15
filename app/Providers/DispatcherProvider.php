@@ -16,6 +16,7 @@ namespace App\Providers;
 use Phalcon\Di\DiInterface;
 use Phalcon\Mvc\Dispatcher;
 use App\Library\Service\NotFoundPlugin;
+use App\Library\Service\SecurityPlugin;
 use Phalcon\Di\ServiceProviderInterface;
 use Phalcon\Events\Manager as EventsManager;
 
@@ -32,8 +33,7 @@ class DispatcherProvider implements ServiceProviderInterface
             /**
              * Check if the user is allowed to access certain action using the SecurityPlugin
              */
-            // $eventsManager->attach('dispatch:beforeExecuteRoute', new SecurityPlugin());
-
+            $eventsManager->attach('dispatch:beforeExecuteRoute', new SecurityPlugin());
             /**
              * Handle exceptions and not-found exceptions using NotFoundPlugin
              */

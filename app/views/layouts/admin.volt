@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="noindex,nofollow,noarchive" />
-    <title></title>
+    <title><?php echo Phalcon\Tag::getTitle(); ?></title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="">
@@ -30,7 +30,28 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-    <?php echo $this->getContent(); ?>
+    <div class="wrapper">
+        <!-- Main Header -->
+        <?php $this->partial('partials/admin/top-header'); ?>
+        <!-- Left side column. contains the logo and sidebar -->
+        <?php $this->partial('partials/admin/sidebar'); ?>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <?php $this->partial('partials/admin/breadcrumb'); ?>
+
+            <!-- Main content -->
+            <section class="content container-fluid">
+                <?php echo $this->getContent(); ?>
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- Main Footer -->
+        <?php $this->partial('partials/admin/footer'); ?>
+        <!-- /Footer -->
+    </div>
+    <!-- /.content-wrapper -->
 
     <script src="{{ static_url('vendor/core/packages/jquery/dist/jquery.min.js?v=') }}<?php echo cache_asset()?>"></script>
     <script src="{{ static_url('vendor/core/packages/bootstrap/dist/js/bootstrap.js?v=') }}<?php echo cache_asset()?>"></script>

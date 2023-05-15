@@ -2,9 +2,7 @@
 
 namespace App\Controllers\Admin;
 
-use App\Controllers\Admin\MasterController;
-
-class DashboardController extends MasterController
+class DashboardController extends AdminMasterController
 {
     public function initialize()
     {
