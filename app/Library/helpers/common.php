@@ -17,6 +17,21 @@ if (!function_exists('env')) {
     }
 }
 
+function base_url()
+{
+    return protocol() . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '');
+}
+
+function protocol()
+{
+    $protocol = 'http';
+    if ($_SERVER['SERVER_PORT'] == 443 || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')) {
+        $protocol .= 's';
+    }
+
+    return $protocol . '://';
+}
+
 /**
  * Overide function dump()
  *
@@ -70,6 +85,11 @@ function auth()
     $session = Di::getDefault()->getShared('session');
 
     return empty($session->get('auth')) ? null : $session->get('auth');
+}
+
+function fullname()
+{
+    return !empty(auth()) ? auth()->first_name . ' ' . auth()->last_name : '';
 }
 
 function route($name)

@@ -58,9 +58,7 @@ class LoginController extends BaseController
         $user = $this->findUser($email);
 
         if (false !== $user) {
-            $check = $this
-                ->security
-                ->checkHash($password, $user->password);
+            $check = $this->security->checkHash($password, $user->password);
 
             if (true === $check) {
                 $this->flashSession->message('success_msg', 'Login success!');
@@ -73,14 +71,12 @@ class LoginController extends BaseController
 
     public function findUser($email)
     {
-        $user = User::findFirst(
-            [
-                'conditions' => 'email = :email:',
-                'bind'       => [
-                    'email' => $email,
-                ],
-            ]
-        );
+        $user = User::findFirst([
+            'conditions' => 'email = :email:',
+            'bind'       => [
+                'email' => $email,
+            ],
+        ]);
 
         if ($user) {
             return $user;

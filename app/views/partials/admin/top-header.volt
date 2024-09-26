@@ -21,7 +21,7 @@
             <ul class="nav navbar-nav">
                 <li>
                     <a class="btn btn-success btn-site-preview" href="/" target="_blank">
-                        <i class="fa fa-eye"></i> view_site
+                        <i class="fa fa-eye"></i> View site
                     </a>
                 </li>
                 <li class="dropdown user user-menu">
@@ -51,17 +51,15 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="" class="user-image"
-                            alt="ffullname">
+                        <img src="{{ static_url('vendor/core/images/avatar.jpg') }}" class="user-image" alt="fullname">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">ffullname</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="" class="img-circle"
-                                alt="ffullname">
-                            <p>ffullname</p>
+                            <img src="{{ static_url('vendor/core/images/avatar.jpg') }}" class="img-circle" alt="ffullname">
+                            <p><?php echo fullname() ?></p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">

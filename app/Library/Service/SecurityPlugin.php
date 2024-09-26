@@ -126,7 +126,7 @@ class SecurityPlugin extends Injectable
             'index'    => ['index'],
             'about'    => ['index'],
             'register' => ['index'],
-            'login'    => ['index'],
+            'login'    => ['index', 'logout'],
             'errors'   => ['show401', 'show404', 'show500'],
             'session'  => ['index', 'register', 'start', 'end'],
             'contact'  => ['index', 'send'],

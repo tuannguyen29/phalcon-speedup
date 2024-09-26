@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?php echo Phalcon\Tag::getTitle(); ?></title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->url->get('img/favicon.png')?>"/>
+        <link rel="canonical" href="https://phalcon.io/en-us">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ static_url('assets/images/favicons/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ static_url('assets/images/favicons/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ static_url('assets/images/favicons/favicon-16x16.png') }}">
+        <link rel="icon" type="image/svg+xml" href="{{ static_url('assets/images/favicons/favicon.svg') }}">
+        <link rel="icon" type="image/png" href="{{ static_url('assets/images/favicons/favicon.png') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ static_url('assets/images/favicons/favicon.ico') }}">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
         <link rel="stylesheet" href="{{ static_url('/css/style.css') }}">

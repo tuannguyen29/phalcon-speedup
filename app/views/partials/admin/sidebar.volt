@@ -4,10 +4,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="" class="img-circle" alt="fullname">
+                <img src="{{ static_url('vendor/core/images/avatar.jpg') }}" class="img-circle" alt="<?php echo fullname() ?>">
             </div>
             <div class="pull-left info">
-                <p>fullname</p>
+                <p><?php echo fullname() ?></p>
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -16,8 +16,7 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="">
-                <a href=""><i class="glyphicon glyphicon-th-large"></i>
-                    <span>dashboard</span></a>
+                <a href=""><i class="glyphicon glyphicon-th-large"></i><span>dashboard</span></a>
             </li>
 
             <li class="treeview active">

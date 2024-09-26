@@ -16,7 +16,7 @@ return new \Phalcon\Config\Config([
         'pluginsDir'     => APP_PATH . '/plugins/',
         'libraryDir'     => APP_PATH . '/library/',
         'cacheDir'       => STORAGE_PATH . '/views/',
-        'baseUri'        => '/',
+        'baseUri'        => base_url() . '/',
 
         /**
          * Migration settings.
