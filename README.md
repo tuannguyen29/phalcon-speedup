@@ -38,6 +38,24 @@ switch to the relevant branch.
 2. Generate `vendor/bin/phalcon-migrations generate --config=migrations.php`
 3. Run create db `vendor/bin/phalcon-migrations run --config=migrations.php`
 
+### Demo
+
+- Homepage
+
+![Alt text](https://blog.larabin.com/tz-content/files/uploads/images/chia-se-file/github/phalcon-cms/phalcon-cms-2.png)
+
+- Login/Register page
+
+![Alt text](https://blog.larabin.com/tz-content/files/uploads/images/chia-se-file/github/phalcon-cms/phalcon-cms-3.png)
+
+- Admin page:
+
+  * Register account: http://localhost/auth/register
+  * After access link admin: https://localhost/admin
+
+This admin using AdminLTE template version v2.4.17, link [here][12].
+
+![Alt text](https://blog.larabin.com/tz-content/files/uploads/images/chia-se-file/github/phalcon-cms/phalcon-cms-1.jpg)
 
 ## License
 
@@ -54,3 +72,4 @@ Invo is open-sourced software licensed under the [New BSD License][8]. © Phalco
 [9]: https://docs.docker.com/engine/install/
 [10]: https://docs.docker.com/compose/install/
 [11]: https://blog.larabin.com/p/how-to-install-and-setup-development-environment-phalcon-v500rc4-on-windows-with-wampserver-62f530abb8e80
+[12]: https://adminlte.io/themes/AdminLTE/index.html
