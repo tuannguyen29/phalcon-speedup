@@ -21,14 +21,16 @@ switch to the relevant branch.
 
 * PHP >= 7.4
 * [Apache][2] Web Server with [mod_rewrite][3] enabled or [Nginx][4] Web Server
-* Latest stable [Phalcon Framework release][5] extension enabled
+* Latest stable [Phalcon Framework release][5] extension enabled (Tutorial for Wamp: [link here][11])
 * [MySQL][6] >= 5.7
+* Composer
 
 ### Installation
 
 1. Copy project to local environment - `git clone git@github.com:tuannguyen29/phalcon-speedup.git`
 2. Copy file `cp .env.example .env`
 3. Edit .env file with your DB connection information
+4. Install composer, run command: `composer install`
 
 ### Migrations
 
@@ -51,3 +53,4 @@ Invo is open-sourced software licensed under the [New BSD License][8]. © Phalco
 [8]: https://github.com/phalcon/invo/blob/master/docs/LICENSE.md
 [9]: https://docs.docker.com/engine/install/
 [10]: https://docs.docker.com/compose/install/
+[11]: https://blog.larabin.com/p/how-to-install-and-setup-development-environment-phalcon-v500rc4-on-windows-with-wampserver-62f530abb8e80

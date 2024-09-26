@@ -2,12 +2,8 @@
 
 namespace App\Controllers;
 
-<<<<<<< Updated upstream
 use App\Controllers\BaseController;
-=======
 use App\Library\Service\Facebook;
-use App\Controllers\ControllerBase;
->>>>>>> Stashed changes
 
 class IndexController extends BaseController
 {
