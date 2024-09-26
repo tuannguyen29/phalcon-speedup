@@ -59,6 +59,8 @@ This admin using AdminLTE template version v2.4.17, link [here][12].
 
 ## License
 
+This CMS is built on [Invo][13].
+
 Invo is open-sourced software licensed under the [New BSD License][8]. © Phalcon Framework Team and contributors
 
 [1]: https://phalcon.io/
@@ -73,3 +75,4 @@ Invo is open-sourced software licensed under the [New BSD License][8]. © Phalco
 [10]: https://docs.docker.com/compose/install/
 [11]: https://blog.larabin.com/p/how-to-install-and-setup-development-environment-phalcon-v500rc4-on-windows-with-wampserver-62f530abb8e80
 [12]: https://adminlte.io/themes/AdminLTE/index.html
+[13]: https://docs.phalcon.io/5.6/tutorial-invo/
