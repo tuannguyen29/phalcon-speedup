@@ -2,6 +2,15 @@
 
 $router = $di->getRouter();
 
+$router->add(
+    '/fb',
+    [
+        'namespace'  => 'App\Controllers',
+        'controller' => 'index',
+        'action'     => 'fb',
+    ]
+)->setName('fb');
+
 // Define your routes here
 $router->add(
     '/auth/login',
